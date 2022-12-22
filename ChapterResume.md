@@ -20,6 +20,8 @@ Tdd got some rules and philosophy that aim to drive you through your development
 - Move toward a more generalized solution for the concern instead of "if" forest.
 - TDD is not a hard science; think of it as a craft-person’s tool for incrementally growing a codebase.
 - TDD allow serenity of experimentation, discovery, and refinement.
+- During refactoring steps, we aim to enhance design by:
+    - Separate interfaces from implementations.
 
 #### Rules
 
@@ -28,6 +30,9 @@ Tdd got some rules and philosophy that aim to drive you through your development
 - Write only the production code needed to pass the one failing test.
 - If no test describes a behavior, it either doesn’t exist or isn’t intended.
 - Each test is independent.
+- Make it work, make it beautiful, make it optimize:
+    - This statement imply to build good design, with consistent
+      interfaces and expressive code during refactoring phase before optimizing it.
 
 ## Interesting tools and concepts to look at
 
