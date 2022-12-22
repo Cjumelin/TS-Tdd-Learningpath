@@ -7,6 +7,6 @@ export class Soundex {
     }
 
     private zeroPad(word: string): string {
-        return word + '000'
+        return word.padEnd(4, '0')
     }
 }
