@@ -5,9 +5,13 @@ class Soundex {
  }
 }
 describe('Soundex',() => {
+    let soundex: Soundex;
+
+    beforeEach(() => {
+        soundex = new Soundex()
+    })
 
     test('RetainSoleLetterOfOneLetterWord', () => {
-        const soundex = new Soundex()
         expect(soundex.encode('A')).toStrictEqual('A')
     });
 

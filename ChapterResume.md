@@ -12,6 +12,9 @@ Tdd got some rules and philosophy that aim to drive you through your development
   try again.
 - Every passing test represents a proven piece
   of behavior that you’ve added to the system
+- We want to first ensure that a newly coded assertion doesn’t pass. (Sometimes it does,
+  which is usually not a good thing). This ensures our
+  test is honest.
 #### Rules
 - Write production code only to make a failing test pass. 
 - Write no more of a unit test than sufficient to fail. Compilation failures
