@@ -1,12 +1,14 @@
 
 class Soundex {
-
+ encode(_word: string): string {
+    return ''
+ }
 }
 describe('Soundex',() => {
 
     test('RetainSoleLetterOfOneLetterWord', () => {
         const soundex = new Soundex()
-        expect(Soundex.encode('A')).toStrictEqual('A')
+        expect(soundex.encode('A')).toStrictEqual('A')
     });
 
 
