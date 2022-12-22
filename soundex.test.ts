@@ -16,7 +16,7 @@ describe('Soundex', () => {
     })
 
     test('retain the sole letter of a one letter word', () => {
-        expect(soundex.encode('A')).toStrictEqual('A')
+        expect(soundex.encode('A')).toStrictEqual('A000')
     });
 
     test('pads with zero to ensure three digit', () => {
