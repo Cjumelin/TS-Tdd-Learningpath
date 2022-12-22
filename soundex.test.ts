@@ -15,4 +15,8 @@ describe('Soundex', () => {
         expect(soundex.encode('I')).toStrictEqual('I000')
     });
 
+    test('replace consonants with appropriate digit', () => {
+        expect(soundex.encode('Ab')).toStrictEqual('A100')
+    });
+
 })

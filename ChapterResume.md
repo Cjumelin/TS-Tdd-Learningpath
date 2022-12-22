@@ -13,10 +13,13 @@ Tdd got some rules and philosophy that aim to drive you through your development
 - If you get into trouble, you can easily revert to a known good state and try again.
 - Every passing test represents a proven piece of behavior that you’ve added to the system.
 - We want to first ensure that a newly coded assertion doesn’t pass. (Sometimes it does, which is usually not a good
-  thing). This ensures ourtest is honest.
+  thing). This ensures our test is honest.
 - Primary refactoring focus on increasing expressiveness and eliminating duplication.
-- Ability to move forward in the face of incomplete information
+- Ability to move forward in the face of incomplete information.
 - Ability to correct earlier choices as new information arises.
+- Move toward a more generalized solution for the concern instead of "if" forest.
+- TDD is not a hard science; think of it as a craft-person’s tool for incrementally growing a codebase.
+- TDD allow serenity of experimentation, discovery, and refinement.
 
 #### Rules
 
@@ -24,8 +27,7 @@ Tdd got some rules and philosophy that aim to drive you through your development
 - Write no more of a unit test than sufficient to fail. Compilation failures are failures.
 - Write only the production code needed to pass the one failing test.
 - If no test describes a behavior, it either doesn’t exist or isn’t intended.
-- Each test we add is independent.
--
+- Each test is independent.
 
 ## Interesting tools and concepts to look at
 
