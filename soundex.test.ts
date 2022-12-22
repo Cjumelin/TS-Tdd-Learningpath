@@ -1,7 +1,7 @@
 
 class Soundex {
- encode(_word: string): string {
-    return 'A'
+ encode(word: string): string {
+    return word + '000'
  }
 }
 describe('Soundex',() => {
