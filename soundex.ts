@@ -15,7 +15,11 @@ export class Soundex {
 
     private encodeDigits(word: string): string {
         if (word.length > 1)
-            return "1"
+            return this.encodeDigit()
         return ""
+    }
+
+    private encodeDigit(): string {
+        return '1'
     }
 }
