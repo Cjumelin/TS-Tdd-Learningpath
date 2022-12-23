@@ -29,6 +29,6 @@ export class Soundex {
     }
 
     private encodeDigit(letter: string): string {
-        return digitEncoder[letter]
+        return digitEncoder[letter] || ""
     }
 }
