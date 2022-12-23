@@ -23,8 +23,8 @@ describe('Soundex', () => {
         expect(soundex.encode('A#')).toStrictEqual('A000')
     });
 
-    // test('replace multiple consonants with digits', () => {
-    //     expect(soundex.encode('Acdl')).toStrictEqual('A234')
-    // });
+    test('replace multiple consonants with digits', () => {
+        expect(soundex.encode('Acdl')).toStrictEqual('A234')
+    });
 
 })
