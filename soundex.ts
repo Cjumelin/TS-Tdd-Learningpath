@@ -27,8 +27,6 @@ export class Soundex {
     }
 
     private encodeDigits(word: string): string {
-        if (word.length === 0)
-            return ""
         let encodedConsonant: string = "";
         for (let char of word)
             encodedConsonant += this.encodeDigit(char)
