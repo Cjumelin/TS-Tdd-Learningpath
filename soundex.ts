@@ -1,5 +1,6 @@
 const MAX_CODE_LENGTH = 4
 
+
 export class Soundex {
     public encode(word: string): string {
         return this.zeroPad(this.head(word) + this.encodeDigits(word))
