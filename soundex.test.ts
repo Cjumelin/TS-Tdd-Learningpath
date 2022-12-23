@@ -18,5 +18,9 @@ describe('Soundex', () => {
     test('replace consonants with appropriate digit', () => {
         expect(soundex.encode('Ax')).toStrictEqual('A200')
     });
+    
+    test('ignore unrecognized characters', () => {
+        expect(soundex.encode('A#')).toStrictEqual('A000')
+    });
 
 })
