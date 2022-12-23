@@ -29,7 +29,10 @@ export class Soundex {
     private encodeDigits(word: string): string {
         if (word.length === 0)
             return ""
-        return this.encodeDigit(word.charAt(0))
+        let encodedConsonant: string = "";
+        for (let char of word)
+            encodedConsonant += this.encodeDigit(char)
+        return encodedConsonant
     }
 
     private encodeDigit(letter: string): string {
