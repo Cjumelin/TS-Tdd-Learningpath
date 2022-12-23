@@ -16,9 +16,7 @@ describe('Soundex', () => {
     });
 
     test('replace consonants with appropriate digit', () => {
-        expect(soundex.encode('Ab')).toStrictEqual('A100')
-        expect(soundex.encode('Ac')).toStrictEqual('A200')
-        expect(soundex.encode('Ad')).toStrictEqual('A300')
+        expect(soundex.encode('Ax')).toStrictEqual('A200')
     });
 
 })
