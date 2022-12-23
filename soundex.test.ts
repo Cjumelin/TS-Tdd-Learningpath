@@ -18,8 +18,8 @@ describe('Soundex', () => {
     test('replace consonants with appropriate digit', () => {
         expect(soundex.encode('Ax')).toStrictEqual('A200')
     });
-    
-    test('ignore unrecognized characters', () => {
+
+    test('ignore non alphabetic characters', () => {
         expect(soundex.encode('A#')).toStrictEqual('A000')
     });
 
