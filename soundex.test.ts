@@ -27,4 +27,8 @@ describe('Soundex', () => {
         expect(soundex.encode('Acdl')).toStrictEqual('A234')
     });
 
+    test('limits length to four characters', () => {
+        expect(soundex.encode('Dcdlb').length).toStrictEqual(4)
+    });
+
 })
