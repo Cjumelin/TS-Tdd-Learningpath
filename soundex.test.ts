@@ -35,5 +35,8 @@ describe('Soundex', () => {
         expect(soundex.encode('Baeiouhycdl')).toStrictEqual("B234")
     });
 
+    test('combine duplicate encoding', () => {
+        expect(soundex.encode('Abfcgdt')).toStrictEqual("A123") // B and F are encode with the dame digit: "1"
+    });
 
 })
