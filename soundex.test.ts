@@ -50,4 +50,8 @@ describe('Soundex', () => {
         expect(soundex.encode('BCDL')).toStrictEqual(soundex.encode('Bcdl'))
     });
 
+    test('Combine duplicated codes when the two first letter are the same', () => {
+        expect(soundex.encode('Bbcd')).toStrictEqual("B230")
+    });
+
 })
