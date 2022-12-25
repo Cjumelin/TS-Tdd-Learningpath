@@ -47,6 +47,6 @@ export class Soundex {
     }
 
     private encodeDigit(letter: string): string | null {
-        return digitEncoder[letter] || null
+        return digitEncoder[letter.toLowerCase()] || null
     }
 }
