@@ -30,9 +30,13 @@ export class Soundex {
         let encodedConsonant: string = "";
         for (let char of word) {
             encodedConsonant += this.encodeDigit(char);
-            if (encodedConsonant.length >= MAX_CODE_LENGTH - 1) break;
+            if (this.isComplete(encodedConsonant)) break;
         }
         return encodedConsonant
+    }
+
+    private isComplete(encodedConsonant: string): boolean {
+        return encodedConsonant.length >= MAX_CODE_LENGTH - 1
     }
 
     private encodeDigit(letter: string): string {
