@@ -32,7 +32,7 @@ describe('Soundex', () => {
     });
 
     test('ignore vowel-like letter', () => {
-        expect(soundex.encode('Baeiouhycdl')).toStrictEqual("B234")
+        expect(soundex.encode('BaAeEiIoOuUhHyYcdl')).toStrictEqual("B234")
     });
 
     test('combine duplicate encoding', () => {
