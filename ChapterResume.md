@@ -22,6 +22,7 @@ Tdd got some rules and philosophy that aim to drive you through your development
 - TDD allow serenity of experimentation, discovery, and refinement.
 - During refactoring steps, we aim to enhance design by:
     - Separate interfaces from implementations.
+- Part of doing TDD is thinking outside of what we’re given.
 
 #### Rules
 

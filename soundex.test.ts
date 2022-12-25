@@ -42,4 +42,8 @@ describe('Soundex', () => {
         expect(soundex.encode('Abfcgdt')).toStrictEqual("A123")
     });
 
+    test('uppercase first letter', () => {
+        expect(soundex.encode('abcd')[0]).toStrictEqual("A")
+    });
+
 })
