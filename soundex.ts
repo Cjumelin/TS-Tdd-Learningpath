@@ -30,14 +30,15 @@ export class Soundex {
         let encodedConsonant: string = "";
         for (let char of word) {
             if (this.isComplete(encodedConsonant)) break;
-            if (this.encodeDigit(char) !== this.lastDigit(encodedConsonant))
-                encodedConsonant += this.encodeDigit(char);
+            const encodedDigit = this.encodeDigit(char)
+            if (encodedDigit && encodedDigit !== this.lastDigit(encodedConsonant))
+                encodedConsonant += encodedDigit;
         }
         return encodedConsonant
     }
 
-    private lastDigit(encodedConsonant: string): string {
-        if (encodedConsonant.length === 0) return ""
+    private lastDigit(encodedConsonant: string): string | null {
+        if (encodedConsonant.length === 0) return null
         return encodedConsonant[encodedConsonant.length - 1]
     }
 
@@ -45,7 +46,7 @@ export class Soundex {
         return encodedConsonant.length >= MAX_CODE_LENGTH - 1
     }
 
-    private encodeDigit(letter: string): string {
-        return digitEncoder[letter] || ""
+    private encodeDigit(letter: string): string | null {
+        return digitEncoder[letter] || null
     }
 }
