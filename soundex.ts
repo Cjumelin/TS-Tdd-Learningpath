@@ -23,7 +23,7 @@ export class Soundex {
     }
 
     private head(word: string): string {
-        return word.slice(0, 1)
+        return word.slice(0, 1).toUpperCase()
     }
 
     private encodeDigits(word: string): string {
