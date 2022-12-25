@@ -31,4 +31,9 @@ describe('Soundex', () => {
         expect(soundex.encode('Dcdlb').length).toStrictEqual(4)
     });
 
+    test('ignore vowel-like letter', () => {
+        expect(soundex.encode('Baeiouhycdl')).toStrictEqual("B234")
+    });
+
+
 })
