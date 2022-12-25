@@ -29,10 +29,16 @@ export class Soundex {
     private encodeDigits(word: string): string {
         let encodedConsonant: string = "";
         for (let char of word) {
-            encodedConsonant += this.encodeDigit(char);
             if (this.isComplete(encodedConsonant)) break;
+            if (this.encodeDigit(char) !== this.lastDigit(encodedConsonant))
+                encodedConsonant += this.encodeDigit(char);
         }
         return encodedConsonant
+    }
+
+    private lastDigit(encodedConsonant: string): string {
+        if (encodedConsonant.length === 0) return ""
+        return encodedConsonant[encodedConsonant.length - 1]
     }
 
     private isComplete(encodedConsonant: string): boolean {

@@ -36,7 +36,10 @@ describe('Soundex', () => {
     });
 
     test('combine duplicate encoding', () => {
-        expect(soundex.encode('Abfcgdt')).toStrictEqual("A123") // B and F are encode with the dame digit: "1"
+        // B and F are encode with the dame digit: "1"
+        // C and G are encode with the dame digit: "2"
+        // D and T are encode with the dame digit: "3"
+        expect(soundex.encode('Abfcgdt')).toStrictEqual("A123")
     });
 
 })
