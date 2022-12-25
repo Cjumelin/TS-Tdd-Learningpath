@@ -30,8 +30,5 @@ describe('Soundex', () => {
     test('limits length to four characters', () => {
         expect(soundex.encode('Dcdlb').length).toStrictEqual(4)
     });
-    test('limits length to four characters', () => {
-        expect(soundex.encode('Dcdldfeferfeb').length).toStrictEqual(4)
-    });
 
 })
