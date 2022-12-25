@@ -46,4 +46,8 @@ describe('Soundex', () => {
         expect(soundex.encode('abcd')[0]).toStrictEqual("A")
     });
 
+    test('ignore consonant case', () => {
+        expect(soundex.encode('BCDL')).toStrictEqual(soundex.encode('Bcdl'))
+    });
+
 })
