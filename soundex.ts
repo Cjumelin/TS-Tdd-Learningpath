@@ -28,8 +28,10 @@ export class Soundex {
 
     private encodeDigits(word: string): string {
         let encodedConsonant: string = "";
-        for (let char of word)
-            encodedConsonant += this.encodeDigit(char)
+        for (let char of word) {
+            encodedConsonant += this.encodeDigit(char);
+            if (encodedConsonant.length >= MAX_CODE_LENGTH - 1) break;
+        }
         return encodedConsonant
     }
 
