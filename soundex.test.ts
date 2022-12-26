@@ -54,4 +54,8 @@ describe('Soundex', () => {
         expect(soundex.encode('Bbcd')).toStrictEqual("B230")
     });
 
+    test('does not combine when separated by a vowel', () => {
+        expect(soundex.encode('Jbob')).toStrictEqual("J110")
+    });
+
 })
