@@ -11,7 +11,7 @@ const digitEncoder: Record<string, string> = {
 
 export class Soundex {
     public encode(word: string): string {
-        return this.zeroPad(this.head(word) + this.encodeDigits(this.tail(word)))
+        return this.zeroPad(this.head(word) + this.tail(this.encodeDigits(word)))
     }
 
     private zeroPad(word: string): string {
@@ -27,8 +27,8 @@ export class Soundex {
     }
 
     private encodeDigits(word: string): string {
-        let encodedConsonant: string = "";
-        for (let char of word) {
+        let encodedConsonant: string = this.encodeDigit(this.head(word)) || " "
+        for (let char of this.tail(word)) {
             if (this.isComplete(encodedConsonant)) break;
             const encodedDigit = this.encodeDigit(char)
             if (encodedDigit && encodedDigit !== this.lastDigit(encodedConsonant))
@@ -37,13 +37,14 @@ export class Soundex {
         return encodedConsonant
     }
 
+
     private lastDigit(encodedConsonant: string): string | null {
         if (encodedConsonant.length === 0) return null
         return encodedConsonant[encodedConsonant.length - 1]
     }
 
     private isComplete(encodedConsonant: string): boolean {
-        return encodedConsonant.length >= MAX_CODE_LENGTH - 1
+        return encodedConsonant.length >= MAX_CODE_LENGTH
     }
 
     private encodeDigit(letter: string): string | null {
