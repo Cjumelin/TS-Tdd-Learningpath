@@ -19,7 +19,7 @@ export class Soundex {
     }
 
     private tail(word: string): string {
-        return word.slice(1, word.length)
+        return word.slice(1)
     }
 
     private head(word: string): string {
