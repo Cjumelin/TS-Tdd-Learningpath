@@ -27,7 +27,14 @@ export class Soundex {
     }
 
     private encodeDigits(word: string): string {
-        let encodedConsonant: string = this.encodeDigit(this.head(word)) || " "
+        return this.encodeTail(this.encodeHead(word), word)
+    }
+
+    private encodeHead(word: string): string {
+        return this.encodeDigit(this.head(word)) || " "
+    }
+
+    private encodeTail(encodedConsonant: string, word: string): string {
         for (let char of this.tail(word)) {
             if (this.isComplete(encodedConsonant)) break;
             const encodedDigit = this.encodeDigit(char)
@@ -36,7 +43,6 @@ export class Soundex {
         }
         return encodedConsonant
     }
-
 
     private lastDigit(encodedConsonant: string): string | null {
         if (encodedConsonant.length === 0) return null
