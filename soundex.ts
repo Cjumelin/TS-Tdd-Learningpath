@@ -35,13 +35,17 @@ export class Soundex {
     }
 
     private encodeTail(encodedConsonant: string, word: string): string {
-        for (let char of this.tail(word)) {
-            if (this.isComplete(encodedConsonant)) break;
-            const encodedDigit = this.encodeDigit(char)
-            if (encodedDigit && encodedDigit !== this.lastDigit(encodedConsonant))
-                encodedConsonant += encodedDigit;
-        }
+        for (let char of this.tail(word))
+            if (!this.isComplete(encodedConsonant))
+                encodedConsonant = this.encodeLetter(char, encodedConsonant);
         return encodedConsonant
+    }
+
+    private encodeLetter(char: string, encodedConsonant: string) {
+        const encodedDigit = this.encodeDigit(char)
+        if (encodedDigit && encodedDigit !== this.lastDigit(encodedConsonant))
+            encodedConsonant += encodedDigit;
+        return encodedConsonant;
     }
 
     private lastDigit(encodedConsonant: string): string | null {
