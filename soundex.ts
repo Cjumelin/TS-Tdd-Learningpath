@@ -35,17 +35,22 @@ export class Soundex {
     }
 
     private encodeTail(encodedConsonant: string, word: string): string {
-        for (let char of this.tail(word))
+        for (let i = 1; i < word.length; i++)
             if (!this.isComplete(encodedConsonant))
-                encodedConsonant = this.encodeLetter(char, encodedConsonant);
+                encodedConsonant = this.encodeLetter(word[i], word[i - 1], encodedConsonant);
         return encodedConsonant
     }
 
-    private encodeLetter(char: string, encodedConsonant: string) {
+    private encodeLetter(char: string, precedentLetter: string, encodedConsonant: string) {
         const encodedDigit = this.encodeDigit(char)
-        if (encodedDigit && encodedDigit !== this.lastDigit(encodedConsonant))
+        if (encodedDigit && (
+            this.isVowel(precedentLetter) || encodedDigit !== this.lastDigit(encodedConsonant)))
             encodedConsonant += encodedDigit;
         return encodedConsonant;
+    }
+
+    private isVowel(char: string): boolean {
+        return "aeiouy".indexOf(char) >= 0
     }
 
     private lastDigit(encodedConsonant: string): string | null {
