@@ -1,4 +1,5 @@
 const MAX_CODE_LENGTH = 4
+const VOWEL = "aeiouy"
 
 const digitEncoder: Record<string, string> = {
     "b": "1", "f": "1", "p": "1", "v": "1",
@@ -8,6 +9,7 @@ const digitEncoder: Record<string, string> = {
     "m": "5", "n": "5",
     "r": "6",
 }
+
 
 export class Soundex {
     public encode(word: string): string {
@@ -35,22 +37,28 @@ export class Soundex {
     }
 
     private encodeTail(encodedConsonant: string, word: string): string {
-        for (let i = 1; i < word.length; i++)
-            if (!this.isComplete(encodedConsonant))
-                encodedConsonant = this.encodeLetter(word[i], word[i - 1], encodedConsonant);
+        for (
+            let i = 1;
+            !this.isComplete(encodedConsonant) && i < word.length;
+            i++
+        )
+            encodedConsonant = this.encodeLetter(word[i], word[i - 1], encodedConsonant);
         return encodedConsonant
     }
 
     private encodeLetter(char: string, precedentLetter: string, encodedConsonant: string) {
         const encodedDigit = this.encodeDigit(char)
-        if (encodedDigit && (
-            this.isVowel(precedentLetter) || encodedDigit !== this.lastDigit(encodedConsonant)))
+        if (encodedDigit && !this.shouldCombine(precedentLetter, encodedDigit, encodedConsonant))
             encodedConsonant += encodedDigit;
         return encodedConsonant;
     }
 
+    private shouldCombine(precedentLetter: string, encodedDigit: string, encodedConsonant: string): boolean {
+        return encodedDigit === this.lastDigit(encodedConsonant) && !this.isVowel(precedentLetter)
+    }
+
     private isVowel(char: string): boolean {
-        return "aeiouy".indexOf(char) >= 0
+        return VOWEL.indexOf(char) >= 0
     }
 
     private lastDigit(encodedConsonant: string): string | null {
