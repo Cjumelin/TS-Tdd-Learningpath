@@ -22,7 +22,12 @@ Tdd got some rules and philosophy that aim to drive you through your development
 - TDD allow serenity of experimentation, discovery, and refinement.
 - During refactoring steps, we aim to enhance design by:
     - Separate interfaces from implementations.
-- Part of doing TDD is thinking outside of what we’re given.
+- Part of doing TDD is thinking outside what we’re given.
+- Test-driving leaves behind a clear document.
+- There is no one right way to code any solution.
+- TDD is not a silver bullet. You’ll still ship defects, and you still need many other forms of testing.
+- Following TDD will provide you with safe opportunities to rename and restructure your code for better understanding.
+- TDD allows you to make the continual tweaks necessary to keep design quality high.
 
 #### Rules
 
@@ -32,8 +37,8 @@ Tdd got some rules and philosophy that aim to drive you through your development
 - If no test describes a behavior, it either doesn’t exist or isn’t intended.
 - Each test is independent.
 - Make it work, make it beautiful, make it optimize:
-    - This statement imply to build good design, with consistent
-      interfaces and expressive code during refactoring phase before optimizing it.
+    - This statement imply to build good design, with consistent interfaces and expressive code during refactoring phase
+      before optimizing it.
 
 ## Interesting tools and concepts to look at
 
@@ -41,3 +46,12 @@ Tdd got some rules and philosophy that aim to drive you through your development
 - Tpp
 - Test triangulation
 - Test abstraction
+
+## Solution characteristics opinion:
+
+- It implements what the customer asked for.
+    - Ensure your understanding of the expected behavior of the solution by the client.
+    - Not introduce the costs of optimization when it’s not needed.
+- It works.
+- Code is clean and readable.
+- It’s easily changed.
