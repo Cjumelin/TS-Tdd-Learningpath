@@ -25,5 +25,6 @@ describe("Soundex", () => {
 
   test("Consonant are replaced by the corresponding digit", () => {
     expect(soundex("ab")).toStrictEqual("A100");
+    expect(soundex("ac")).toStrictEqual("A200");
   });
 });
