@@ -1,7 +1,16 @@
+type TransformedConsonant = "1" | "";
+
 const getFirstLetter = (str: string) => str.charAt(0);
 
+const consonantToDigit = (consonant: string): TransformedConsonant => {
+  if (consonant === "b") return "1";
+  return "";
+};
+
 const soundex = (toEncode: string) => {
-  return getFirstLetter(toEncode).toLocaleUpperCase().padEnd(4, "0");
+  return (getFirstLetter(toEncode) + consonantToDigit(toEncode.slice(1)))
+    .toLocaleUpperCase()
+    .padEnd(4, "0");
 };
 
 describe("Soundex", () => {
@@ -14,7 +23,7 @@ describe("Soundex", () => {
     expect(soundex("f")).toStrictEqual("F000");
   });
 
-  //   test("Consonant are replaced by the corresponding digit", () => {
-  //     expect(soundex("ab")).toStrictEqual("A100");
-  //   });
+  test("Consonant are replaced by the corresponding digit", () => {
+    expect(soundex("ab")).toStrictEqual("A100");
+  });
 });
