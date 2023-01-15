@@ -1,5 +1,5 @@
 const soundex = (toEncode: string) => {
-  return toEncode.toLocaleUpperCase();
+  return toEncode.toLocaleUpperCase().padEnd(4, "0");
 };
 
 describe("Soundex", () => {
