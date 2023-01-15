@@ -11,4 +11,8 @@ describe("Soundex", () => {
   test("Is exactly a letter and 3 digits", () => {
     expect(soundex("f")).toStrictEqual("F000");
   });
+
+  test("Consonant are replaced by the corresponding digit", () => {
+    expect(soundex("ab")).toStrictEqual("A100");
+  });
 });
