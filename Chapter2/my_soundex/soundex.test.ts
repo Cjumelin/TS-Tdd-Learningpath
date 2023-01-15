@@ -4,9 +4,11 @@ const soundex = (toEncode: string) => {
 
 describe("Soundex", () => {
   test("Retain the first letter in uppercase", () => {
-    expect(soundex("a")).toStrictEqual("A");
-    expect(soundex("f")).toStrictEqual("F");
+    expect(soundex("a")).toStrictEqual("A000");
+    expect(soundex("f")).toStrictEqual("F000");
   });
 
-  test("Retain the first letter", () => {});
+  test("Is exactly a letter and 3 digits", () => {
+    expect(soundex("f")).toStrictEqual("F000");
+  });
 });
